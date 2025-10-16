@@ -1,0 +1,117 @@
+/* --- Загальні стилі та ТЕМНА палітра --- */
+:root {
+    --primary-color: #3498db; /* Трохи яскравіший синій для кращого контрасту */
+    --background-color: #1c2a38; /* Глибокий синьо-сірий фон */
+    --surface-color: #2c3e50;  /* Колір для карток та секцій, трохи світліший за фон */
+    --text-color: #ecf0f1; /* Світло-сірий основний текст */
+    --muted-text-color: #a9b4c2; /* Приглушений текст для дат */
+    --surface-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Тінь для темної теми */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--background-color); /* Встановлюємо темний фон */
+    color: var(--text-color); /* Встановлюємо світлий текст */
+}
+
+/* --- Навігація --- */
+.navbar.bg-dark {
+    background-color: var(--surface-color) !important; /* Робимо колір меню відповідним */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+/* --- Головний контент --- */
+.profile-picture {
+    max-width: 200px;
+    border: 7px solid var(--surface-color); /* Рамка в колір секцій */
+    box-shadow: var(--surface-shadow);
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-picture:hover {
+    transform: scale(1.05);
+}
+
+.text-muted {
+    color: var(--muted-text-color) !important; /* Перевизначаємо колір для дат */
+}
+
+h2, h3 {
+    font-weight: 700;
+}
+
+section {
+    background-color: var(--surface-color); /* Встановлюємо колір секцій */
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem !important;
+    box-shadow: var(--surface-shadow);
+    transition: box-shadow 0.3s ease;
+    border: 1px solid #405469; /* Ледь помітна рамка для глибини */
+}
+
+section:hover {
+    box-shadow: 0 15px 25px rgba(0,0,0,0.3);
+}
+
+section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--background-color); /* Лінія-розділювач у колір фону */
+}
+
+/* --- Специфічні елементи --- */
+.list-group-item {
+    background-color: transparent; /* Робимо фон прозорим */
+    border: none;
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+    color: var(--text-color); /* Спадковий колір тексту */
+}
+
+.card {
+    background-color: var(--surface-color) !important;
+    color: var(--text-color); /* <--- ОСЬ ЦЕЙ РЯДОК */
+    border: none;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* --- Кнопки --- */
+.btn-primary {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 12px 20px;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9; /* Темніший відтінок синього */
+    transform: scale(1.02);
+}
+
+.card .btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.card .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+    transform: scale(1.03);
+}
+
+/* --- Футер --- */
+.footer {
+    background-color: var(--surface-color) !important;
+    border-top: 1px solid #405469;
+}
