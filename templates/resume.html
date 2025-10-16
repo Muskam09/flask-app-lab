@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 text-center">
+        <img src="{{ url_for('static', filename='images/profile.jpg') }}" class="img-fluid rounded-circle profile-picture" alt="Моє фото">
+        <h2 class="mt-3">Максим Данилів</h2>
+        <p class="text-muted">DevOps Engineer</p>
+    </div>
+    <div class="col-md-8">
+        <section id="about" class="mb-4">
+            <h3><i class="fas fa-user-circle me-2"></i>Про себе</h3>
+            <p>Привіт! Я — DevOps-інженер з досвідом у розгортанні та підтримці додатків у хмарних середовищах, таких як Azure, AWS. Спеціалізуюся на автоматизації CI/CD процесів, роботі з Kubernetes, Docker та Terraform. Прагну створювати надійну та масштабовану інфраструктуру.</p>
+        </section>
+
+        <section id="skills" class="mb-4">
+          <h3><i class="fas fa-laptop-code me-2"></i>Ключові навички</h3>
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fas fa-sync-alt me-2 text-primary"></i>CI/CD (GitHub Actions)</li>
+            <li class="list-group-item"><i class="fab fa-docker me-2 text-primary"></i>Контейнеризація (Docker, Kubernetes)</li>
+            <li class="list-group-item"><i class="fas fa-cloud me-2 text-primary"></i>Хмарні платформи (Azure, AWS)</li>
+            <li class="list-group-item"><i class="fas fa-cogs me-2 text-primary"></i>Інфраструктура як код (Terraform)</li>
+          </ul>
+        </section>
+
+        <section id="experience" class="mb-4">
+            <h3><i class="fas fa-project-diagram me-2"></i>Досвід роботи / Проєкти</h3>
+
+            <!-- Проект 1 -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Розгортання full-stack додатку в AKS з використанням Helm</h5>
+                    <p class="card-text">Створення CI/CD пайплайну викорситвуючи GitHub Actions, для розгортання React/Django/Postgress додатку в Azure Kubernetes Service з використанням Helm, побудовою інфраструктури додатка за допомогою Terraform. Налаштування моніторингу через Prometheus та Grafana.</p>
+                    <div class="d-flex justify-content-between align-items-center mt-3">
+                        <p class="card-subtitle text-muted mb-0">Серпень 2025</p>
+                        <a href="https://github.com/Muskam09/Deploy-culinary-to-AKS-with-Helm" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fab fa-github me-2"></i>Переглянути код</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Проект 2 -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Розгортання full-stack додатку в App Service безконтейнерно</h5>
+                    <p class="card-text">Створення CI/CD пайплайну викорситвуючи GitHub Actions, для розгортання React/Django/Postgress додатку в App Service, Terraform та GitHub Actions. Налаштування моніторингу через AMS побудова графіків та алертів.</p>
+                     <div class="d-flex justify-content-between align-items-center mt-3">
+                        <p class="card-subtitle text-muted mb-0">Серпень 2025</p>
+                        <a href="https://github.com/Muskam09/team-project-culinary-platform" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fab fa-github me-2"></i>Переглянути код</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Проект 3 -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Розгортання full-stack додатку в App Service з Контейнеризацією</h5>
+                    <p class="card-text">Створення CI/CD пайплайну викорситвуючи GitHub Actions, для розгортання React/Django/Postgress додатку в App Service, Terraform та GitHub Actions. Налаштування моніторингу через AMS побудова графіків та алертів.</p>
+                     <div class="d-flex justify-content-between align-items-center mt-3">
+                        <p class="card-subtitle text-muted mb-0">Вересень 2025</p>
+                        <a href="https://github.com/Muskam09/project_dockerizing_web_app_azure" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fab fa-github me-2"></i>Переглянути код</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Проект 4 -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Розгортання full-stack додатку в AWS EKS з використанням Helm</h5>
+                    <p class="card-text">Створення CI/CD пайплайну викорситвуючи GitHub Actions, для розгортання React/Django/Postgress додатку в AWS Kubernetes Service з використанням Helm, Terraform та GitHub Actions. Налаштування моніторингу через Prometheus та Grafana.</p>
+                     <div class="d-flex justify-content-between align-items-center mt-3">
+                        <p class="card-subtitle text-muted mb-0">Жовтень 2025</p>
+                        <a href="https://github.com/Muskam09/AWS-Deploy-culinary-to-EKS-with-Helm" target="_blank" class="btn btn-outline-primary btn-sm"><i class="fab fa-github me-2"></i>Переглянути код</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="mb-4">
+            <h3><i class="fas fa-graduation-cap me-2"></i>Освіта</h3>
+            <p><strong>Карпатський національний університет імені Василя Стефаника</strong>, Інженерія програмного забезпечення, 2020-2024</p>
+            <p><strong>Курс DevOps в mate academy</strong></p>
+        </section>
+    </div>
+</div>
+{% endblock %}
