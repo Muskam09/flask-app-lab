@@ -115,3 +115,29 @@ section h3 {
     background-color: var(--surface-color) !important;
     border-top: 1px solid #405469;
 }
+
+/* --- Стилі для лаби 3 --- */
+.sidebar {
+    background-color: var(--surface-color);
+    border-right: 1px solid #405469;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.sidebar .nav-link {
+    color: var(--muted-text-color);
+}
+
+.sidebar .nav-link:hover {
+    color: var(--primary-color);
+}
+
+.age-info.positive {
+    color: #28a745; /* Зелений */
+    font-weight: bold;
+}
+
+.age-info.negative {
+    color: #dc3545; /* Червоний */
+    font-weight: bold;
+}

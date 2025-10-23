@@ -1,5 +1,5 @@
 from flask import Flask, render_template, url_for
-app = Flask(__name__)
+from . import app
 
 @app.route('/')
 def resume():
@@ -8,7 +8,3 @@ def resume():
 @app.route('/contact')
 def contact():
   return render_template('contact.html', title='Контакти')
-
-
-if __name__ == '__main__':
-  app.run(debug=True)
