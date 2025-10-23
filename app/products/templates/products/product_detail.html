@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<section>
+    <h3><i class="fas fa-box me-2"></i>{{ product.name }}</h3>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Повний опис:</h5>
+            <p class="card-text">{{ product.description }}</p>
+            
+            <!-- Посилання "Назад до списку" -->
+            <a href="{{ url_for('products.list_all') }}" class="btn btn-primary">
+                <i class="fas fa-arrow-left me-2"></i>Назад до списку
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
