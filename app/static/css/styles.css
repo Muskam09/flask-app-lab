@@ -141,3 +141,88 @@ section h3 {
     color: #dc3545; /* Червоний */
     font-weight: bold;
 }
+
+/* ===== Лаба 4: Світла/темна ТЕМА ===== */
+
+/* Світла тема */
+.light-mode {
+    --page-bg: #ffffff;
+    --section-bg: #f8f9fa;
+    --main-text: #212529;
+    --muted-text: #6c757d;
+    --border-color: #dee2e6;
+    --form-bg: #ffffff;
+    --form-text: #212529;
+}
+
+.light-mode body {
+    background-color: var(--page-bg) !important;
+    color: var(--main-text) !important;
+}
+.light-mode .card,
+.light-mode section {
+    background-color: var(--section-bg) !important;
+    color: var(--main-text);
+    border: 1px solid var(--border-color);
+}
+.light-mode .sidebar {
+    background-color: var(--section-bg);
+    border-right: 1px solid var(--border-color);
+}
+.light-mode .sidebar .nav-link {
+    color: var(--muted-text);
+}
+.light-mode .sidebar .nav-link:hover {
+    color: var(--primary-color);
+}
+.light-mode .table {
+    color: var(--main-text);
+    --bs-table-striped-bg: #f2f2f2;
+    --bs-table-bg: #ffffff;
+    --bs-table-border-color: var(--border-color);
+}
+.light-mode .form-label {
+    color: var(--main-text);
+}
+.light-mode .form-control {
+    background-color: var(--form-bg);
+    color: var(--form-text);
+    border-color: var(--border-color);
+}
+.light-mode .form-control:focus {
+    background-color: var(--form-bg);
+    color: var(--form-text);
+}
+
+/* Темна тема */
+.dark-mode {
+    background-color: var(--background-color, #1c2a38) !important;
+    color: var(--text-color, #ecf0f1) !important;
+}
+.dark-mode .card,
+.dark-mode section {
+    background-color: var(--surface-color, #2c3e50) !important;
+    color: var(--text-color, #ecf0f1);
+}
+.dark-mode .sidebar {
+    background-color: var(--surface-color, #2c3e50);
+    border-right: 1px solid #405469;
+}
+.dark-mode .table {
+    color: var(--text-color, #ecf0f1);
+    --bs-table-striped-bg: #374a5c;
+    --bs-table-bg: #2c3e50;
+    --bs-table-border-color: #405469;
+}
+.dark-mode .form-label {
+    color: var(--text-color, #ecf0f1);
+}
+.dark-mode .form-control {
+    background-color: #405469;
+    color: #fff;
+    border-color: #50677e;
+}
+.dark-mode .form-control:focus {
+    background-color: #405469;
+    color: #fff;
+}

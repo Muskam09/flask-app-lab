@@ -31,7 +31,6 @@ def list_all():
 @products_bp.route("/<int:product_id>")
 def get_product(product_id):
   product = next((p for p in products if p['id'] == product_id), None)
-  # Якщо продукт не знайдено, повертаємо 404
   if product is None:
       abort(404)
   return render_template("products/product_detail.html", product=product)
