@@ -1,22 +1,30 @@
 {% extends "base.html" %}
 
+{% import "_macros.html" as macros %}
+
+{% block title %}Контакти{% endblock %}
+
 {% block content %}
-<div class="col-md-8 mx-auto">
-  <h2 class="text-center mb-4">Зв'яжіться зі мною</h2>
-  <form>
-    <div class="mb-3">
-      <label for="name" class="form-label">Ваше ім'я</label>
-      <input type="text" class="form-control" id="name" required>
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <section>
+            <h2 class="text-center mb-4">Зв'яжіться зі мною</h2>
+
+            <form method="POST" novalidate>
+
+                {{ form.hidden_tag() }}
+
+                {{ macros.render_field(form.name) }}
+                {{ macros.render_field(form.email) }}
+                {{ macros.render_field(form.phone) }}
+                {{ macros.render_field(form.subject) }}
+                {{ macros.render_field(form.message, rows=5) }} {# 'rows=5' - приклад передачі дод. атрибутів #}
+
+                <div class="mt-4">
+                    {{ form.submit(class="btn btn-primary w-100") }}
+                </div>
+            </form>
+        </section>
     </div>
-    <div class="mb-3">
-      <label for="email" class="form-label">Email адреса</label>
-      <input type="email" class="form-control" id="email" required>
-    </div>
-    <div class="mb-3">
-      <label for="message" class="form-label">Повідомлення</label>
-      <textarea class="form-control" id="message" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary w-100">Відправити</button>
-  </form>
 </div>
 {% endblock %}
