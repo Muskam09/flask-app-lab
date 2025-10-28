@@ -1,4 +1,6 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
+
+{% import "_macros.html" as macros %}
 
 {% block title %}Увійти{% endblock %}
 
@@ -7,16 +9,20 @@
     <div class="col-md-6 offset-md-3">
         <section>
             <h2 class="text-center">Login</h2>
-            <form method="POST" action="{{ url_for('users.login') }}">
-                <div class="mb-3">
-                    <label for="username" class="form-label">Ім'я користувача</label>
-                    <input type="text" class="form-control" id="username" name="username" required>
+
+            <form method="POST" novalidate>
+
+                {{ form.hidden_tag() }}
+
+                {{ macros.render_field(form.username) }}
+                {{ macros.render_field(form.password) }}
+
+                <div class="mb-3 form-check">
+                    {{ form.remember(class="form-check-input") }}
+                    {{ form.remember.label(class="form-check-label") }}
                 </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Пароль</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Увійти</button>
+
+                {{ form.submit(class="btn btn-primary w-100") }}
             </form>
         </section>
     </div>
