@@ -2,3 +2,6 @@ venv
 .flaskenv
 __pycache__
 logs*
+.env
+instance
+migrations

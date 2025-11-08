@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Підтвердження видалення{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container mt-5">
+        <h2 class="text-danger">Підтвердження видалення</h2>
+        <p>Ви дійсно хочете видалити пост <strong>"{{ post.title }}"</strong>?</p>
+        <p>Цю дію неможливо буде скасувати.</p>
+        
+        {# Форма відправляє POST-запит на цю ж сторінку #}
+        <form method="POST">
+            {# CSRF-токен для безпеки [cite: 1819-1823, 1827] #}
+            {{ form.hidden_tag() }}
+            
+            <button type="submit" class="btn btn-danger">Так, видалити</button>
+            <a href="{{ url_for('posts.detail_post', id=post.id) }}" class="btn btn-secondary">Скасувати</a>
+        </form>
+    </div>
+</section>
+{% endblock %}
