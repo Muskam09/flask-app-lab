@@ -4,6 +4,8 @@ from flask import (
       )
 from app.users import users_bp
 from datetime import datetime
+from app.forms import LoginForm
+
 
 @users_bp.route("/hi/<string:name>")
 def greetings(name):
@@ -19,24 +21,31 @@ def admin():
     return redirect(to_url)
 
 VALID_USERNAME = "admin"
-VALID_PASSWORD = "123"
+VALID_PASSWORD = "123456"
 
+# ===== РЕФАКТОРИНГ LOGIN =====
 @users_bp.route('/login', methods=['GET', 'POST'])
 def login():
-    """Сторінка логіну."""
-    if request.method == 'POST':
-        username = request.form.get('username')
-        password = request.form.get('password')
+    form = LoginForm()
+
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
 
         if username == VALID_USERNAME and password == VALID_PASSWORD:
             session['username'] = username
-            flash(f'Ласкаво просимо, {username}!', 'success')
+
+            if form.remember.data:
+                flash(f'Ласкаво просимо, {username}! Вас запам\'ятали.', 'success')
+            else:
+                flash(f'Ласкаво просимо, {username}!', 'success')
+
             return redirect(url_for('users.profile'))
         else:
-            flash('Неправильне ім\'я користувача або пароль! Спробуйте ще.', 'danger')
+            flash('Неправильне ім\'я користувача або пароль!', 'danger')
             return redirect(url_for('users.login'))
 
-    return render_template('users/login.html')
+    return render_template('users/login.html', form=form)
 
 
 @users_bp.route('/logout')
@@ -55,7 +64,7 @@ def profile():
 
     username = session.get('username')
     
-    # --- ЗАВДАННЯ 2: КЕРУВАННЯ COOKIES ---
+    # --- КЕРУВАННЯ COOKIES ---
     if request.method == 'POST':
 
         # 1. Додавання кукі
