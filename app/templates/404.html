@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Сторінку не знайдено{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-5">
+    <h1 class="display-4 text-danger">404</h1>
+    <h2>От халепа! Сторінку не знайдено.</h2>
+    <p class="lead">Вибачте, сторінка, яку ви шукаєте, не існує.</p>
+    <a href="{{ url_for('main.resume') }}" class="btn btn-primary mt-3">Повернутись на Головну</a>
+</div>
+{% endblock %}
