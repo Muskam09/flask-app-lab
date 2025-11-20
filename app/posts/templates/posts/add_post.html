@@ -1,26 +1,30 @@
 {% extends "base.html" %}
 {% import "_macros.html" as macros %}
 
-
+{# Встановлюємо заголовок. Якщо 'title' не передано, використовуємо 'Create' #}
 {% block title %}{{ title | default('Create New Post') }}{% endblock %}
 
 {% block content %}
 <section>
+    {# Динамічний заголовок сторінки #}
     <h2>{{ title | default('Create a New Post') }}</h2>
     
     <form method="POST" novalidate>
         {{ form.hidden_tag() }} {# CSRF Token #}
-        
+
         {{ macros.render_field(form.title) }}
         {{ macros.render_field(form.content, rows=10) }}
         {{ macros.render_field(form.category) }}
         {{ macros.render_field(form.publish_date) }}
-        
+        {{ macros.render_field(form.author_id) }}
+        {{ macros.render_field(form.tags, size=5) }}
+
         <div class="mb-3 form-check">
             {{ form.enabled(class="form-check-input") }}
             {{ form.enabled.label(class="form-check-label") }}
         </div>
 
+        {# Динамічний текст на кнопці #}
         {{ form.submit(class="btn btn-primary", value=(title | default('Create Post'))) }}
     </form>
 </section>
