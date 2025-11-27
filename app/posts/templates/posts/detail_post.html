@@ -8,7 +8,7 @@
         <h1 class="mb-3">{{ post.title }}</h1>
         
         <div class="text-muted mb-3">
-            <span>Автор: <strong>{{ post.author }}</strong></span> |
+            <span>Автор: <strong>{{ post.user.username }}</strong></span> | {# Змінено з post.author #}
             <span>Категорія: <strong>{{ post.category | title }}</strong></span> |
             <span>Опубліковано: <strong>{{ post.posted.strftime('%Y-%m-%d %H:%M') }}</strong></span>
         </div>
@@ -16,28 +16,33 @@
         <hr>
 
         <div class="post-content mt-4">
-            {# | nl2br перетворює переноси рядків (\n) на <br> #}
             <p>{{ post.content }}</p>
         </div>
         
-        <hr>
-
+        {# --- ДОДАНО ВІДОБРАЖЕННЯ ТЕГІВ (Пункт 12) --- #}
+        {% if post.tags %}
         <div class="mt-4">
-            {# Кнопка "Редагувати" #}
-            <a href="{{ url_for('posts.update_post', id=post.id) }}" class="btn btn-warning">
-                <i class="fas fa-edit me-1"></i> Редагувати
-            </a>
-            
-            {# Кнопка "Видалити" #}
-            <a href="{{ url_for('posts.delete_post', id=post.id) }}" class="btn btn-danger">
-                <i class="fas fa-trash me-1"></i> Видалити
-            </a>
-            
-            {# Кнопка "Назад" #}
-            <a href="{{ url_for('posts.list_all') }}" class="btn btn-secondary">
-                <i class="fas fa-arrow-left me-1"></i> Назад до списку
-            </a>
+            <strong>Теги:</strong>
+            {% for tag in post.tags %}
+                <span class="badge bg-info text-dark">{{ tag.name }}</span>
+            {% endfor %}
         </div>
+        {% endif %}
+        {# ----------------------------------------- #}
+
+        <hr>
+        
+        <div class="mt-4">
+    <a href="{{ url_for('posts.update_post', id=post.id) }}" class="btn btn-warning">
+        <i class="fas fa-edit me-1"></i> Редагувати
+    </a>
+    <a href="{{ url_for('posts.delete_post', id=post.id) }}" class="btn btn-danger">
+        <i class="fas fa-trash me-1"></i> Видалити
+    </a>
+    <a href="{{ url_for('posts.list_all') }}" class="btn btn-secondary">
+        <i class="fas fa-arrow-left me-1"></i> Назад до списку
+    </a>
+</div>
     </article>
-</section>
+</section
 {% endblock %}

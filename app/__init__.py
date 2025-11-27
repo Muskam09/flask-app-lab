@@ -65,6 +65,17 @@ def create_app(config_name=os.environ.get('FLASK_CONFIG', 'default')):
 
     @app.shell_context_processor
     def make_shell_context():
-        from app.posts.models import Post
-        return {'db': db, 'Post': Post}
+        from app.posts.models import Post, Tag
+        from app.users.models import User
+        from app.products.models import Product, Category
+
+        return {
+            'db': db, 
+            'Post': Post,
+            'Tag': Tag, 
+            'User': User, 
+            'Product': Product, 
+            'Category': Category
+        }
+
     return app
