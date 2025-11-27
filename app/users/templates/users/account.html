@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Профіль користувача{% endblock %}
+
+{% block content %}
+<div class="content-section">
+    <div class="media">
+        <div class="media-body">
+            {# current_user доступний автоматично завдяки Flask-Login #}
+            <h2 class="account-heading">{{ current_user.username }}</h2>
+            <p class="text-secondary">{{ current_user.email }}</p>
+            <p>Вітаємо на сторінці вашого профілю!</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
