@@ -5,6 +5,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
+
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('main.resume') }}">Головна (Резюме)</a>
@@ -16,22 +17,35 @@
           <a class="nav-link" href="{{ url_for('main.contact') }}">Контакти</a>
         </li>
       </ul>
+
       <ul class="navbar-nav">
-        {% if session.username %}
+        {# Використовуємо current_user від Flask-Login #}
+        {% if current_user.is_authenticated %}
+          
+          {# Додаткове посилання "Користувачі" тільки для авторизованих #}
           <li class="nav-item">
-            <a class="nav-link" href="{{ url_for('users.profile') }}">
-              <i class="fas fa-user me-1"></i>Профіль ({{ session.username }})
+            <a class="nav-link" href="{{ url_for('users.users_list') }}">Користувачі</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('users.account') }}">
+              <i class="fas fa-user me-1"></i>Профіль ({{ current_user.username }})
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('users.logout') }}">Вийти</a>
           </li>
         {% else %}
+          {# Посилання для гостей #}
           <li class="nav-item">
             <a class="nav-link" href="{{ url_for('users.login') }}">Увійти</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('users.register') }}">Реєстрація</a>
+          </li>
         {% endif %}
       </ul>
+      
     </div>
   </div>
 </nav>

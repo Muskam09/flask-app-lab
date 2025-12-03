@@ -42,20 +42,19 @@ class ContactForm(FlaskForm):
     submit = SubmitField('Надіслати')
 
 
-# ===== ЗАВДАННЯ 2: КЛАС ДЛЯ ФОРМИ ЛОГІНУ =====
+
 class LoginForm(FlaskForm):
-    # Поле Username
     username = StringField('Ім\'я користувача', validators=[
         DataRequired(message="Це поле обов'язкове.")
     ])
-    
+
     # Поле Password
     password = PasswordField('Пароль', validators=[
         DataRequired(message="Це поле обов'язкове."),
-        Length(min=4, max=10, message="Пароль має бути від 4 до 10 символів")
+        Length(min=4, max=20, message="Пароль має бути від 4 до 20 символів")
     ])
     
     # Поле Remember Me
     remember = BooleanField("Запам'ятати мене")
-    
+
     submit = SubmitField('Увійти')
